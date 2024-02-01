@@ -1,5 +1,5 @@
 body {
-  background-image: url("images/trees.jpg");
+  background: linear-gradient(#e66465, #9198e5);
   display: flex;
   font-family: 'Roboto', sans-serif;
   justify-content: center;
@@ -7,9 +7,9 @@ body {
 }
 
 .container {
-  background-color: #ffffffdd;
+  background-color: #ffffff66;
   border-radius: 10px;
   padding: 20px;
   text-align: center;
-  width: 60%;
+  width: 50%;
 }
