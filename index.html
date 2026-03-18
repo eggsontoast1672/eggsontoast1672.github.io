@@ -2,61 +2,122 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-
-    <!-- Styles -->
-    <link rel="stylesheet" href="index.css">
+    <title>Paul Zupan | Mathematician & Developer</title>
+    <link rel="stylesheet" href="style.css">
   </head>
+
   <body>
-    <div class="container">
-      <h1>Paul Alexander Zupan</h1>
+
+    <header>
+      <div class="container">
+        <h1>Paul Zupan</h1>
+        <p class="subtitle">Mathematician • Software Developer • Jazz Saxophonist</p>
+
+        <nav>
+          <a href="#about">About</a>
+          <a href="#research">Math</a>
+          <a href="#software">Software</a>
+          <a href="blog/index.html">Blog</a>
+          <a href="#music">Music</a>
+        </nav>
+      </div>
+    </header>
+
+    <section id="about" class="container">
+      <h2>About Me</h2>
+
       <p>
-        Hello! My name is Paul Zupan. I like making little games and other
-        pieces of software, and I just like learning about software in general.
-        I'm in high school right now, and I'm hoping to get a computer
-        engineering degree in the future and make a career in the tech
-        industry.
+      Hello! My name is Paul Zupan. I am an undergraduate student at the
+      University of Oregon studying pure mathematics and Jazz saxophone.
+      Outside of school, I also have a passion for computers and programming.
       </p>
-      <h2>Projects</h2>
+
+    </section>
+
+    <section id="research" class="container">
+      <h2>Mathematics</h2>
+
       <p>
-        I have several cool projects to show off, most of them are in C/C++ or
-        Rust. Most of them are also graphical applications, but some are CLI.
-        At the moment, my flagship project is a sorting algorithm visualizer,
-        and it's available under lunathanel's GitHub page. The link to the
-        GitHub page of my partner, Nathanael Lu, can be found
-        <a href="https://github.com/lunathanael"> here,</a> and the link to the
-        sorting visualizer can be found
-        <a href="https://github.com/lunathanael/visualizing-sorting">here.</a>
+      My general mathematical interests are algebra and topology. More
+      specifically, I enjoy studying algebraic geometry, algebraic topology,
+      and particular applications of category theory. I am just the kind of
+      person who is always thinking about some mathematical problem, and I love
+      a good puzzle. My hope is to get a Ph.D. in mathematics so that I can
+      teach in university and publish my work! I also have an interest in math
+      pedagogy, and I love to write expository texts. That is the entire reason
+      this website exists!
       </p>
-      <h3>
-        <a href="https://github.com/lunathanael/visualizing-sorting">
-          Visualizing Sorting
-        </a>
-      </h3>
+
       <p>
-        Have you ever been on YouTube and seen a video of one of those sorting
-        algorithm visualizers, where there is a series of bars which represent
-        numbers and they get moved around until they make a triangle? This is
-        basically that. This is my flagship project and is in active
-        development.
+      Explaining math is really fun for me, so part of my motivation to create
+      this website was to post up some of my writing. I believe in
+      destigmatizing mathematics and abolishing the generational trauma that
+      seems to be associated with it. I think that even if you aren't good with
+      numbers, there is still so much interesting math to be discovered. Math
+      is not just about numbers. Rather, it is the study of abstraction and
+      logical thought. If you want to know more about what I study or just want
+      to learn about some cool math, check out the link to my blog below.
       </p>
-      <h2>Linkies</h2>
+
+      <a class="button" href="blog/index.html">Read Math Blog</a>
+    </section>
+
+    <section id="software" class="container">
+      <h2>Software Development</h2>
+
       <p>
-        If you're interested in collaborating with me or want to check out some
-        of my projects that aren't listed above, check out the linkies:
+      Computer science and programming is a huge interest of mine as well, even
+      though I do not study it in school. My original plan was to get a degree
+      in computer science so I could work as a professional software developer,
+      but I ended up switching to a math degree to avoid the CS job market
+      hellscape. I am particularly fascinated with graphics programming and
+      compiler design.
       </p>
+
       <p>
-      Email: paul.zupan.13@gmail.com<br>
-      GitHub: <a href="https://github.com/eggsontoast1672">github.com</a><br>
-      YouTube: <a href="https://www.youtube.com/channel/UC91FaEZlN2FQqKVpLDw3rmw">www.youtube.com
+      Graphics programming has been a consistent interest for me. It began as a
+      simple desire to program video games, as many young people dream of
+      doing. However, it was not the game design and art that gripped me, but
+      rather the inner machinations of rendering to the screen. I have always
+      found working with low-level APIs like OpenGL, Vulkan, and WGPU to be
+      rewarding, since they teach you so much about how graphics cards actually
+      work. From a software architecture perspective, I also enjoy the mental
+      exercise of creating abstractions around the low-level APIs. Since I am a
+      mathematician at heart, I also cannot help but find intriguing the math
+      behind 3D rendering. I have always been blown away by how a 3-dimensional
+      scene can be rendered to a 2-dimensional screen just using some simple
+      linear algebra.
       </p>
-    </div>
+
+      <p>
+      The other half of my programming interests is language programming. I
+      find it very fun to pick things apart and see how they work, so it was
+      only a matter of time until I did that with compilers and interpreters
+      too. The pipeline of travelling from source code to tokens to abstract
+      syntax tree to intermediate representation to assembly is infinitely
+      amazing. As with graphics side of things, I just have to find a way to
+      work math into everything, so parsing theory has also managed to capture
+      my attention.
+      </p>
+    </section>
+
+    <section id="music" class="container">
+      <h2>Music</h2>
+
+      <p>
+      While music is not my main interest, it is a big part of my life. I come
+      from a musical family, so music was all around me throughout my
+      upbringing. I have been playing saxophone since 2018, and I enjoy Jazz in
+      particular. I play shows around Eugene with the UO big bands and combos.
+      Come check us out if you happen to be in town!
+      </p>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p>© 2026 Paul Zupan</p>
+      </div>
+    </footer>
   </body>
 </html>
