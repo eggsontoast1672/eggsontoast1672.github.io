@@ -2,51 +2,207 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Paul Zupan | Math Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paul Zupan | Academic Writing Library</title>
     <link rel="stylesheet" href="../style.css">
   </head>
 
   <body>
-    <header>
+    <header class="site-header">
       <div class="container">
-        <h1>Math Blog</h1>
+        <h1>Academic Writing Library</h1>
+        <p class="subtitle">Browse published mathematical writing and study notes.</p>
         <nav>
           <a href="../index.html">Home</a>
         </nav>
       </div>
     </header>
 
-    <div class="container">
-      <!--
-      <article class="post">
-        <h2><a href="first-post.html">An Intuition for Quotient Groups</a></h2>
-        <p class="date">March 2026</p>
-        <p>
-        A conceptual introduction to quotient groups and how they arise
-        naturally when studying symmetries.
-        </p>
-      </article>
+    <main class="container panel writing-library">
+      <h2>Browse Writing</h2>
+      <p>
+        Use the search bar to filter by title or tag, choose a sort order, and
+        select an article to view full metadata.
+      </p>
 
-      <article class="post">
-        <h2><a href="category-theory-notes.html">Notes on Functors</a></h2>
-        <p class="date">March 2026</p>
-        <p>
-        Basic examples of functors and why they appear everywhere in
-        mathematics.
-        </p>
-      </article>
-      -->
-      <article class="post">
-        <h2><a href="the-point.html">My Mission and the Point of Math</a></h2>
-        <p class="date">March 2026</p>
-        <p>What math is really about, and the motivation for this blog.</p>
-      </article>
+      <div class="library-controls">
+        <label class="control-group">
+          Search
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="Search by title or tag"
+            aria-label="Search by title or tag"
+          >
+        </label>
 
-      <article class="post">
-        <h2><a href="set-theory.html">Set Theory: A First Course in Mathematics</a></h2>
-        <p class="date">March 2026</p>
-        <p>An exploration of the ground floor of higher mathematics.</p>
-      </article>
-    </div>
+        <label class="control-group">
+          Sort by
+          <select id="sortSelect" aria-label="Sort articles">
+            <option value="newest">Newest first</option>
+            <option value="oldest">Oldest first</option>
+            <option value="title-asc">Title (A to Z)</option>
+            <option value="title-desc">Title (Z to A)</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="library-grid">
+        <section class="browse-pane" aria-labelledby="browse-heading">
+          <h3 id="browse-heading">Browsing Mode</h3>
+          <p class="small-text">Click any entry to open a detailed view.</p>
+          <div id="articleList" class="article-list"></div>
+          <p id="emptyState" class="small-text" hidden>
+            No articles match your search. Try a different title keyword or tag.
+          </p>
+        </section>
+
+        <section class="detail-pane" aria-labelledby="detail-heading">
+          <h3 id="detail-heading">Detailed View</h3>
+          <article id="articleDetail" class="detail-card">
+            <p class="small-text">Select an article from the list to view details.</p>
+          </article>
+        </section>
+      </div>
+
+      <noscript>
+        <hr>
+        <h3>Article Links (JavaScript disabled)</h3>
+        <ul>
+          <li><a href="the-point.html">My Mission and the Point of Math</a></li>
+          <li><a href="set-theory.html">Set Theory: A First Course in Mathematics</a></li>
+          <li><a href="first-post.html">An Intuition for Quotient Groups</a></li>
+        </ul>
+      </noscript>
+    </main>
+
+    <script>
+      const articles = [
+        {
+          id: "the-point",
+          title: "My Mission and the Point of Math",
+          url: "the-point.html",
+          date: "2026-03-15",
+          tags: ["philosophy", "math-education", "exposition"],
+          prerequisites: "Comfort reading short prose discussions about mathematics.",
+          summary: "A mission-centered essay on what mathematics is and why communicating it clearly matters."
+        },
+        {
+          id: "set-theory",
+          title: "Set Theory: A First Course in Higher Mathematics",
+          url: "set-theory.html",
+          date: "2026-03-18",
+          tags: ["foundations", "set-theory", "proof-writing"],
+          prerequisites: "High-school algebra and willingness to read formal definitions.",
+          summary: "An introduction to sets as the foundational language of modern mathematical reasoning."
+        },
+        {
+          id: "quotient-groups",
+          title: "An Intuition for Quotient Groups",
+          url: "first-post.html",
+          date: "2026-03-20",
+          tags: ["algebra", "group-theory", "quotients"],
+          prerequisites: "Basic group theory including subgroups and normal subgroups.",
+          summary: "A conceptual overview of quotient groups and the idea of collapsing structure."
+        }
+      ];
+
+      const searchInput = document.getElementById("searchInput");
+      const sortSelect = document.getElementById("sortSelect");
+      const articleList = document.getElementById("articleList");
+      const articleDetail = document.getElementById("articleDetail");
+      const emptyState = document.getElementById("emptyState");
+      const dateFormatter = new Intl.DateTimeFormat("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+      });
+
+      let selectedId = null;
+
+      function formatDate(dateValue) {
+        return dateFormatter.format(new Date(dateValue + "T00:00:00"));
+      }
+
+      function sortArticles(items) {
+        const mode = sortSelect.value;
+        const sorted = [...items];
+
+        sorted.sort((a, b) => {
+          if (mode === "oldest") return a.date.localeCompare(b.date);
+          if (mode === "title-asc") return a.title.localeCompare(b.title);
+          if (mode === "title-desc") return b.title.localeCompare(a.title);
+          return b.date.localeCompare(a.date);
+        });
+
+        return sorted;
+      }
+
+      function filterArticles() {
+        const query = searchInput.value.trim().toLowerCase();
+        if (!query) return articles;
+
+        return articles.filter((article) => {
+          const titleMatch = article.title.toLowerCase().includes(query);
+          const tagMatch = article.tags.some((tag) => tag.toLowerCase().includes(query));
+          return titleMatch || tagMatch;
+        });
+      }
+
+      function renderDetail(article) {
+        articleDetail.innerHTML = `
+          <h4>${article.title}</h4>
+          <p class="date">Published ${formatDate(article.date)}</p>
+          <p>${article.summary}</p>
+          <p><strong>Tags:</strong> ${article.tags.join(", ")}</p>
+          <p><strong>Prerequisite knowledge:</strong> ${article.prerequisites}</p>
+          <a class="button" href="${article.url}">Open Article</a>
+        `;
+      }
+
+      function renderList() {
+        const visibleArticles = sortArticles(filterArticles());
+        articleList.innerHTML = "";
+
+        if (!visibleArticles.length) {
+          emptyState.hidden = false;
+          articleDetail.innerHTML = "<p class=\"small-text\">No article selected.</p>";
+          return;
+        }
+
+        emptyState.hidden = true;
+        const visibleIds = new Set(visibleArticles.map((article) => article.id));
+        if (!selectedId || !visibleIds.has(selectedId)) {
+          selectedId = visibleArticles[0].id;
+        }
+
+        visibleArticles.forEach((article) => {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className = "article-item";
+          if (article.id === selectedId) {
+            button.classList.add("active");
+          }
+          button.innerHTML = `
+            <span class="article-title">${article.title}</span>
+            <span class="article-meta">${formatDate(article.date)} • ${article.tags.join(", ")}</span>
+          `;
+          button.addEventListener("click", () => {
+            selectedId = article.id;
+            renderList();
+          });
+          articleList.appendChild(button);
+        });
+
+        const selectedArticle = visibleArticles.find((article) => article.id === selectedId);
+        if (selectedArticle) {
+          renderDetail(selectedArticle);
+        }
+      }
+
+      searchInput.addEventListener("input", renderList);
+      sortSelect.addEventListener("change", renderList);
+      renderList();
+    </script>
   </body>
 </html>

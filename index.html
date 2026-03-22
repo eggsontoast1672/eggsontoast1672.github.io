@@ -3,116 +3,87 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paul Zupan | Mathematician & Developer</title>
+    <title>Paul Zupan | Mathematical Writing Portfolio</title>
     <link rel="stylesheet" href="style.css">
   </head>
-
   <body>
-
-    <header>
+    <header class="site-header">
+      <div class="container header-content">
+        <div>
+          <h1>Paul Zupan</h1>
+          <p class="subtitle">Mathematician • Technical Writer • Educator</p>
+        </div>
+        <ul class="contact-list">
+          <li><strong>Email:</strong> <a href="mailto:paul.zupan@proton.me">paul.zupan@proton.me</a></li>
+          <li><strong>Location:</strong> Eugene, Oregon</li>
+          <li><strong>Writing:</strong> <a href="blog/index.html">Academic Writing Library</a></li>
+        </ul>
+      </div>
       <div class="container">
-        <h1>Paul Zupan</h1>
-        <p class="subtitle">Mathematician • Software Developer • Jazz Saxophonist</p>
-
-        <nav>
+        <nav aria-label="Primary">
           <a href="#about">About</a>
-          <a href="#research">Math</a>
-          <a href="#software">Software</a>
-          <a href="blog/index.html">Blog</a>
-          <a href="#music">Music</a>
+          <a href="#mission">Mission</a>
+          <a href="#occupations">Occupations</a>
+          <a href="#writing">Writing</a>
         </nav>
       </div>
     </header>
 
-    <section id="about" class="container">
-      <h2>About Me</h2>
+    <main>
+      <section id="about" class="container panel">
+        <h2>About Me</h2>
+        <p>
+          I am an undergraduate at the University of Oregon studying pure mathematics.
+          My work centers on clear mathematical exposition, especially for readers who
+          are beginning to transition from computational mathematics into proof-based
+          thinking.
+        </p>
+        <p>
+          I care deeply about writing that is rigorous without being intimidating.
+          Through this portfolio, I share notes, essays, and guided introductions to
+          topics in algebra, topology, and foundational mathematics.
+        </p>
+      </section>
 
-      <p>
-      Hello! My name is Paul Zupan. I am an undergraduate student at the
-      University of Oregon studying pure mathematics and Jazz saxophone.
-      Outside of school, I also have a passion for computers and programming.
-      </p>
+      <section id="mission" class="container mission-panel">
+        <h2>Mission Statement</h2>
+        <p class="mission-text">
+          My mission is to make higher mathematics more approachable by publishing
+          writing that emphasizes intuition, precise language, and intellectual
+          curiosity. I want students to experience mathematics as a creative and
+          humane discipline, not just a list of procedures.
+        </p>
+      </section>
 
-    </section>
+      <section id="occupations" class="container panel">
+        <h2>Occupations</h2>
+        <p>
+          <strong>Mathematical Writer:</strong> I produce expository articles that
+          break down abstract concepts into clear conceptual steps while preserving
+          formal correctness.
+        </p>
+        <p>
+          <strong>Student Researcher:</strong> My interests include algebra, topology,
+          and category-theoretic methods. I enjoy exploring how structural ideas
+          connect seemingly different parts of mathematics.
+        </p>
+        <p>
+          <strong>Educational Communicator:</strong> I design writing for students who
+          want to rebuild confidence in mathematics through careful examples,
+          transparent notation, and guided prerequisites.
+        </p>
+      </section>
 
-    <section id="research" class="container">
-      <h2>Mathematics</h2>
-
-      <p>
-      My general mathematical interests are algebra and topology. More
-      specifically, I enjoy studying algebraic geometry, algebraic topology,
-      and particular applications of category theory. I am just the kind of
-      person who is always thinking about some mathematical problem, and I love
-      a good puzzle. My hope is to get a Ph.D. in mathematics so that I can
-      teach in university and publish my work! I also have an interest in math
-      pedagogy, and I love to write expository texts. That is the entire reason
-      this website exists!
-      </p>
-
-      <p>
-      Explaining math is really fun for me, so part of my motivation to create
-      this website was to post up some of my writing. I believe in
-      destigmatizing mathematics and abolishing the generational trauma that
-      seems to be associated with it. I think that even if you aren't good with
-      numbers, there is still so much interesting math to be discovered. Math
-      is not just about numbers. Rather, it is the study of abstraction and
-      logical thought. If you want to know more about what I study or just want
-      to learn about some cool math, check out the link to my blog below.
-      </p>
-
-      <a class="button" href="blog/index.html">Read Math Blog</a>
-    </section>
-
-    <section id="software" class="container">
-      <h2>Software Development</h2>
-
-      <p>
-      Computer science and programming is a huge interest of mine as well, even
-      though I do not study it in school. My original plan was to get a degree
-      in computer science so I could work as a professional software developer,
-      but I ended up switching to a math degree to avoid the CS job market
-      hellscape. I am particularly fascinated with graphics programming and
-      compiler design.
-      </p>
-
-      <p>
-      Graphics programming has been a consistent interest for me. It began as a
-      simple desire to program video games, as many young people dream of
-      doing. However, it was not the game design and art that gripped me, but
-      rather the inner machinations of rendering to the screen. I have always
-      found working with low-level APIs like OpenGL, Vulkan, and WGPU to be
-      rewarding, since they teach you so much about how graphics cards actually
-      work. From a software architecture perspective, I also enjoy the mental
-      exercise of creating abstractions around the low-level APIs. Since I am a
-      mathematician at heart, I also cannot help but find intriguing the math
-      behind 3D rendering. I have always been blown away by how a 3-dimensional
-      scene can be rendered to a 2-dimensional screen just using some simple
-      linear algebra.
-      </p>
-
-      <p>
-      The other half of my programming interests is language programming. I
-      find it very fun to pick things apart and see how they work, so it was
-      only a matter of time until I did that with compilers and interpreters
-      too. The pipeline of travelling from source code to tokens to abstract
-      syntax tree to intermediate representation to assembly is infinitely
-      amazing. As with graphics side of things, I just have to find a way to
-      work math into everything, so parsing theory has also managed to capture
-      my attention.
-      </p>
-    </section>
-
-    <section id="music" class="container">
-      <h2>Music</h2>
-
-      <p>
-      While music is not my main interest, it is a big part of my life. I come
-      from a musical family, so music was all around me throughout my
-      upbringing. I have been playing saxophone since 2018, and I enjoy Jazz in
-      particular. I play shows around Eugene with the UO big bands and combos.
-      Come check us out if you happen to be in town!
-      </p>
-    </section>
+      <section id="writing" class="container panel">
+        <h2>Academic Writing</h2>
+        <p>
+          Browse, sort, and search my articles by title or tag in the writing
+          library. Each entry includes date, topic tags, and recommended prerequisite
+          knowledge.
+        </p>
+        <a class="button" href="blog/index.html">Open Writing Library</a>
+      </section>
+    </main>
 
     <footer>
       <div class="container">
