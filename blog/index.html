@@ -2,51 +2,93 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Paul Zupan | Math Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paul Zupan | Academic Writing Library</title>
     <link rel="stylesheet" href="../style.css">
   </head>
 
   <body>
-    <header>
+    <div class="top-strip">
+      <div class="container top-strip-content">
+        <span class="kicker">Archive</span>
+        <span>Structured like a mathematical preprint index</span>
+      </div>
+    </div>
+
+    <header class="site-header">
       <div class="container">
-        <h1>Math Blog</h1>
+        <h1>Academic Writing Library</h1>
+        <p class="subtitle">Browse published mathematical writing and study notes.</p>
         <nav>
           <a href="../index.html">Home</a>
+          <a href="https://github.com/eggsontoast1672">GitHub</a>
+          <a href="https://www.youtube.com/@eggsontoast1672">YouTube</a>
+          <a href="https://www.instagram.com/eggsontoast1672">Instagram</a>
         </nav>
       </div>
     </header>
 
-    <div class="container">
-      <!--
-      <article class="post">
-        <h2><a href="first-post.html">An Intuition for Quotient Groups</a></h2>
-        <p class="date">March 2026</p>
-        <p>
-        A conceptual introduction to quotient groups and how they arise
-        naturally when studying symmetries.
-        </p>
-      </article>
+    <main class="container panel writing-library">
+      <h2>Browse Writing</h2>
+      <p>
+        Use the search bar to filter by title or tag, choose a sort order, and
+        select an article to view full metadata.
+      </p>
+      <p class="small-text">
+        Metadata fields are presented in a database-style layout inspired by academic repositories.
+      </p>
 
-      <article class="post">
-        <h2><a href="category-theory-notes.html">Notes on Functors</a></h2>
-        <p class="date">March 2026</p>
-        <p>
-        Basic examples of functors and why they appear everywhere in
-        mathematics.
-        </p>
-      </article>
-      -->
-      <article class="post">
-        <h2><a href="the-point.html">My Mission and the Point of Math</a></h2>
-        <p class="date">March 2026</p>
-        <p>What math is really about, and the motivation for this blog.</p>
-      </article>
+      <div class="library-controls">
+        <label class="control-group">
+          Search
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="Search by title or tag"
+            aria-label="Search by title or tag"
+          >
+        </label>
 
-      <article class="post">
-        <h2><a href="set-theory.html">Set Theory: A First Course in Mathematics</a></h2>
-        <p class="date">March 2026</p>
-        <p>An exploration of the ground floor of higher mathematics.</p>
-      </article>
-    </div>
+        <label class="control-group">
+          Sort by
+          <select id="sortSelect" aria-label="Sort articles">
+            <option value="newest">Newest first</option>
+            <option value="oldest">Oldest first</option>
+            <option value="title-asc">Title (A to Z)</option>
+            <option value="title-desc">Title (Z to A)</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="library-grid">
+        <section class="browse-pane" aria-labelledby="browse-heading">
+          <h3 id="browse-heading">Browsing Mode</h3>
+          <p class="small-text">Click any entry to open a detailed view.</p>
+          <div id="articleList" class="article-list"></div>
+          <p id="emptyState" class="small-text" hidden>
+            No articles match your search. Try a different title keyword or tag.
+          </p>
+        </section>
+
+        <section class="detail-pane" aria-labelledby="detail-heading">
+          <h3 id="detail-heading">Detailed View</h3>
+          <article id="articleDetail" class="detail-card">
+            <p class="small-text">Select an article from the list to view details.</p>
+          </article>
+        </section>
+      </div>
+
+      <noscript>
+        <hr>
+        <h3>Article Links (JavaScript disabled)</h3>
+        <ul>
+          <li><a href="the-point.html">My Mission and the Point of Math</a></li>
+          <li><a href="set-theory.html">Set Theory: A First Course in Mathematics</a></li>
+          <li><a href="first-post.html">An Intuition for Quotient Groups</a></li>
+        </ul>
+      </noscript>
+    </main>
+
+    <script src="library.js"></script>
   </body>
 </html>
